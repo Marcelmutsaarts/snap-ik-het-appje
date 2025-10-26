@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Begrips-thermometer - Student</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="page-header compact">
+      <div>
+        <p class="eyebrow">Student</p>
+        <h1>Hoe goed snap jij het?</h1>
+        <p class="subtitle">
+          Vul de sessiecode van je docent in. Je schuifstand wordt direct en anoniem gedeeld.
+        </p>
+      </div>
+    </header>
+
+    <main class="content-card">
+      <section id="codeSection">
+        <form id="sessionForm" class="stack gap">
+          <label for="sessionCode">Sessiecode</label>
+          <div class="input-row">
+            <input
+              id="sessionCode"
+              name="sessionCode"
+              type="text"
+              inputmode="numeric"
+              maxlength="4"
+              autocomplete="one-time-code"
+              placeholder="1234"
+              required
+            />
+            <button type="submit" class="primary-btn">Meedoen</button>
+          </div>
+          <p class="form-hint">Vraag je docent naar de viercijferige code.</p>
+          <p id="sessionFeedback" class="status-message"></p>
+        </form>
+      </section>
+
+      <section id="sliderSection" class="hidden">
+        <p id="questionTitle" class="question-title">Ik begrijp je uitleg</p>
+        <div class="slider-header">
+          <span id="leftLabel">Niet</span>
+          <span id="rightLabel">Wel</span>
+        </div>
+        <input
+          id="understandingSlider"
+          type="range"
+          min="0"
+          max="100"
+          value="50"
+          step="1"
+          aria-label="Geef aan hoe goed je het begrijpt"
+        />
+        <p id="valueLabel" class="value-label">50%</p>
+        <p class="privacy-note">Je naam of identiteit wordt nergens opgeslagen.</p>
+      </section>
+    </main>
+
+    <footer class="page-footer compact">
+      <a href="docent.html">Ben je docent?</a>
+    </footer>
+
+    <script type="module" src="js/student.js"></script>
+  </body>
+</html>

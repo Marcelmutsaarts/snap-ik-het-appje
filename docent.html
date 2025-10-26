@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Begrips-thermometer - Docent</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="locked">
+    <div id="pinGate" class="pin-gate">
+      <form id="pinForm" class="pin-card stack gap">
+        <p class="eyebrow">Docent beveiliging</p>
+        <h2>Voer docentcode in</h2>
+        <p class="subtitle">Alleen docenten mogen dit dashboard openen.</p>
+        <div class="input-row">
+          <input
+            id="pinInput"
+            type="password"
+            inputmode="numeric"
+            pattern="\d*"
+            maxlength="4"
+            placeholder="0000"
+            autocomplete="one-time-code"
+            required
+          />
+          <button type="submit" class="primary-btn">Ontgrendel</button>
+        </div>
+        <p id="pinFeedback" class="status-message"></p>
+      </form>
+    </div>
+
+    <header class="page-header compact">
+      <div>
+        <p class="eyebrow">Docent</p>
+        <h1>Volg het begrip in je klas</h1>
+        <p class="subtitle">
+          Start een nieuwe sessie of koppel aan een bestaande code. De grafiek werkt realtime bij.
+        </p>
+      </div>
+    </header>
+
+    <main class="docent-grid">
+      <section class="session-card">
+        <div class="session-code">
+          <p>Actieve sessie</p>
+          <strong id="activeCode">- - - -</strong>
+        </div>
+        <div class="button-row">
+          <button id="newSessionBtn" class="primary-btn">Nieuwe sessie</button>
+          <button id="resetSessionBtn" class="ghost-btn" disabled>Reset sessie</button>
+        </div>
+        <form id="joinForm" class="stack gap">
+          <label for="joinCode">Koppel aan bestaande code</label>
+          <div class="input-row">
+            <input
+              id="joinCode"
+              name="joinCode"
+              type="text"
+              inputmode="numeric"
+              maxlength="4"
+              placeholder="1234"
+              autocomplete="one-time-code"
+            />
+            <button type="submit" class="secondary-btn">Koppelen</button>
+          </div>
+          <p id="sessionStatus" class="status-message"></p>
+        </form>
+        <div class="question-picker">
+          <p class="eyebrow">Wat wil je meten?</p>
+          <div id="questionOptions" class="question-options"></div>
+          <p class="form-hint">De gekozen vraag verschijnt bij elke verbonden student.</p>
+        </div>
+        <div class="stats-grid">
+          <div>
+            <p class="eyebrow">Gemiddelde</p>
+            <p class="huge" id="avgDisplay">0%</p>
+          </div>
+          <div>
+            <p class="eyebrow">Deelnemers</p>
+            <p class="huge" id="countDisplay">0</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chart-card">
+        <div class="chart-header">
+          <h2>Live gemiddelde</h2>
+          <p>Dit is de gecombineerde stand van alle studenten op dit moment.</p>
+        </div>
+        <div class="active-question">
+          <p class="eyebrow">Vraag in deze sessie</p>
+          <h3 id="activeQuestionTitle">Ik begrijp je uitleg</h3>
+          <div class="question-label-row">
+            <span id="activeQuestionLeft">Niet</span>
+            <span id="activeQuestionRight">Wel</span>
+          </div>
+        </div>
+        <div class="live-meter">
+          <div class="meter-track empty" id="meterTrack">
+            <div class="meter-gradient"></div>
+            <div class="meter-pointer" id="meterPointer">
+              <span id="meterValue">0%</span>
+            </div>
+          </div>
+          <div class="meter-scale">
+            <span id="meterLeftLabel">Niet</span>
+            <span id="meterRightLabel">Wel</span>
+          </div>
+        </div>
+        <p class="chart-footer" id="lastUpdated">Nog geen data</p>
+      </section>
+    </main>
+
+    <footer class="page-footer compact">
+      <a href="student.html">Terug naar studentenscherm</a>
+    </footer>
+
+    <script type="module" src="js/docent.js"></script>
+  </body>
+</html>
