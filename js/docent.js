@@ -7,7 +7,7 @@ import {
 } from "./firebase.js";
 import { QUESTION_BANK, DEFAULT_QUESTION_ID, getQuestion, valueToColor } from "./questions.js";
 
-const PIN_CODE = "8319";
+const PIN_CODE = "0000";
 
 const pinGate = document.getElementById("pinGate");
 const pinForm = document.getElementById("pinForm");
